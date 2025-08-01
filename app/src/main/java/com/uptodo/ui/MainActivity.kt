@@ -1,4 +1,4 @@
-package com.uptodo
+package com.uptodo.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,11 +11,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import com.uptodo.ui.theme.UpTodoTheme
+import com.uptodo.util.SPLASH_SCREEN_DELAY
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
+    private var isSplashScreenVisible  = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupSplashScreen()
         enableEdgeToEdge()
         setContent {
             UpTodoTheme {
@@ -26,6 +35,16 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
+        }
+    }
+
+    private fun setupSplashScreen() {
+        val splashScreen = installSplashScreen()
+        splashScreen.setKeepOnScreenCondition { isSplashScreenVisible }
+
+        lifecycleScope.launch {
+            delay(SPLASH_SCREEN_DELAY)
+            isSplashScreenVisible = false
         }
     }
 }

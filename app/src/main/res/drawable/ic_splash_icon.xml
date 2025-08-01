@@ -1,0 +1,53 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="288dp"
+    android:height="288dp"
+    android:viewportWidth="288"
+    android:viewportHeight="288">
+
+    <!-- Main circle background (fits within 192dp diameter circle) -->
+    <path
+        android:fillColor="#6366F1"
+        android:pathData="M144,48 C196.91,48 240,91.09 240,144 C240,196.91 196.91,240 144,240 C91.09,240 48,196.91 48,144 C48,91.09 91.09,48 144,48 Z" />
+
+    <!-- Task list container -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M96,96 L192,96 L192,192 L96,192 Z"
+        android:fillAlpha="0.9" />
+
+    <!-- Task 1 - Completed -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M108,114 L120,114 L120,126 L108,126 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M112,117 L114,119 L118,115 L120,117 L114,123 L110,119 Z" />
+    <!-- Task 1 text line -->
+    <path
+        android:fillColor="#9CA3AF"
+        android:pathData="M132,117 L180,117 L180,121 L132,121 Z" />
+
+    <!-- Task 2 - Completed -->
+    <path
+        android:fillColor="#10B981"
+        android:pathData="M108,138 L120,138 L120,150 L108,150 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M112,141 L114,143 L118,139 L120,141 L114,147 L110,143 Z" />
+    <!-- Task 2 text line -->
+    <path
+        android:fillColor="#9CA3AF"
+        android:pathData="M132,141 L174,141 L174,145 L132,145 Z" />
+
+    <!-- Task 3 - Pending -->
+    <path
+        android:fillColor="#E5E7EB"
+        android:pathData="M108,162 L120,162 L120,174 L108,174 Z"
+        android:strokeColor="#D1D5DB"
+        android:strokeWidth="1" />
+    <!-- Task 3 text line -->
+    <path
+        android:fillColor="#374151"
+        android:pathData="M132,165 L186,165 L186,169 L132,169 Z" />
+
+</vector>
