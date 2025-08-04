@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">UpTodo</string>
+    <!-- Onboarding -->
+    <string name="txt_skip">skip</string>
+    <string name="btn_next">next</string>
+    <string name="txt_back">back</string>
+    <string name="txt_get_started">Get Started</string>
+
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_title_1">Manage your tasks</string>
+    <string name="onboarding_description_1">You can easily manage all of your daily tasks in DoMe for free</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_title_2">Create daily routine</string>
+    <string name="onboarding_description_2">In Uptodo you can create your personalized routine to stay productive</string>
+
+    <!-- Onboarding Page 3 -->
+    <string name="onboarding_title_3">Organize your tasks</string>
+    <string name="onboarding_description_3">You can organize your daily tasks by adding your tasks into separate categories</string>
 </resources>
