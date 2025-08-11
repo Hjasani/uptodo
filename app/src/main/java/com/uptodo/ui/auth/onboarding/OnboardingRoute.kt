@@ -23,18 +23,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.uptodo.R
 import com.uptodo.model.OnboardingPage
+import com.uptodo.ui.common.PurpleButton
 import com.uptodo.ui.theme.AppColor
 import com.uptodo.ui.theme.AppTypography
 import com.uptodo.util.Constants
 import kotlinx.coroutines.launch
 
 @Composable
-fun OnboardingRoute(modifier: Modifier = Modifier) {
-    OnboardingScreen(modifier)
+fun OnboardingRoute(modifier: Modifier = Modifier, onGetStarted:() -> Unit) {
+    OnboardingScreen(modifier, onGetStarted = onGetStarted)
 }
 
 @Composable
-fun OnboardingScreen(modifier: Modifier = Modifier) {
+fun OnboardingScreen(modifier: Modifier = Modifier, onGetStarted:() -> Unit = {}) {
     val pages = getOnboardingPages()
 
     val pagerState = rememberPagerState(pageCount = { pages.size })
@@ -42,7 +43,7 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
 
     Scaffold(
         modifier = modifier,
-        containerColor = Color.Black,
+        containerColor = AppColor.Black,
         topBar = {
             Row(
                 modifier = Modifier
@@ -53,7 +54,7 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     ),
                 horizontalArrangement = Arrangement.Start
             ) {
-                TextButton(onClick = {}) {
+                TextButton(onClick = onGetStarted) {
                     Text(
                         text = stringResource(R.string.txt_skip).uppercase(),
                         color = AppColor.Grey,
@@ -95,8 +96,11 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                     )
                 }
 
+                val isLastPage = pagerState.currentPage == pages.size - Constants.PAGE_INCREMENT
+
                 // Next button
-                Button(
+                PurpleButton(
+                    text = if (isLastPage) stringResource(R.string.txt_get_started).uppercase() else stringResource(R.string.btn_next).uppercase(),
                     onClick = {
                         scope.launch {
                             if (pagerState.currentPage < pages.size - Constants.PAGE_INCREMENT) {
@@ -107,22 +111,12 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
                                         easing = androidx.compose.animation.core.FastOutSlowInEasing
                                     )
                                 )
+                            } else {
+                                onGetStarted() // Trigger action when reaching last page
                             }
                         }
                     },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = AppColor.Purple
-                    ),
-                    shape = RoundedCornerShape(dimensionResource(R.dimen.dp_4)),
-                ) {
-                    Text(
-                        text = if (pagerState.currentPage == pages.size - 1) stringResource(R.string.txt_get_started).uppercase() else stringResource(
-                            R.string.btn_next
-                        ).uppercase(),
-                        color = Color.White,
-                        style = AppTypography.bodyNormal
-                    )
-                }
+                )
             }
         }
     ) { contentPadding ->

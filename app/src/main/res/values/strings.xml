@@ -17,4 +17,10 @@
     <!-- Onboarding Page 3 -->
     <string name="onboarding_title_3">Organize your tasks</string>
     <string name="onboarding_description_3">You can organize your daily tasks by adding your tasks into separate categories</string>
+    
+    <!-- Auth -->
+    <string name="welcome_to_uptodo">Welcome to UpTodo</string>
+    <string name="welcome_to_uptodo_description">Please login to your account or create new account to continue</string>
+    <string name="txt_login">login</string>
+    <string name="txt_create_account">Create account</string>
 </resources>

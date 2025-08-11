@@ -202,4 +202,5 @@
     <dimen name="dp_200">200dp</dimen>
     <dimen name="dp_220">220dp</dimen>
     <dimen name="onboarding_image">320dp</dimen>
+    <dimen name="purple_button_height">50dp</dimen>
 </resources>
